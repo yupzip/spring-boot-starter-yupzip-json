@@ -1,0 +1,8 @@
+rootProject.name = 'spring-boot-starter-yupzip-json'
+
+// Composite build: when the sibling yupzip-json checkout is present, build it locally so changes
+// there are picked up without a separate publish step. On CI (and any environment without the
+// sibling directory), Gradle falls back to resolving the dependency from Maven Central.
+if (file('../yupzip-json/build.gradle').exists()) {
+    includeBuild '../yupzip-json'
+}

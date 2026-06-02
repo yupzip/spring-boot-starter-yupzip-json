@@ -1,0 +1,48 @@
+plugins {
+    id 'java-library'
+    id 'jacoco'
+    id 'com.github.kt3k.coveralls' version '2.12.2'
+}
+
+group = 'com.yupzip.json'
+version = '1.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    springBootVersion = '4.0.6'
+}
+
+dependencies {
+    // Spring Boot BOM manages versions for Spring Boot artifacts AND third-party libs it bundles,
+    // including Jackson — so jackson-databind stays in lockstep with what Spring Boot ships.
+    api platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
+
+    api 'com.yupzip.json:yupzip-json:4.0.0'
+    api 'tools.jackson.core:jackson-databind'
+    implementation 'org.springframework.boot:spring-boot-autoconfigure'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-jackson'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:6.0.2'
+    testImplementation 'org.junit.jupiter:junit-jupiter-engine:6.0.2'
+    testImplementation 'org.junit.platform:junit-platform-launcher:6.0.2'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        html.required = true
+    }
+}

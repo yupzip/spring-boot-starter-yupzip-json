@@ -1,0 +1,31 @@
+### Build output ###
+.gradle
+build/
+target/
+out/
+!gradle/wrapper/gradle-wrapper.jar
+
+### Credentials / publish config (kept out of version control) ###
+pom.xml
+gradle.properties
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### Eclipse / STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### VS Code ###
+.vscode/
+
+### macOS ###
+.DS_Store
