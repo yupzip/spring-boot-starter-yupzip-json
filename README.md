@@ -1,12 +1,14 @@
 # spring-boot-starter-yupzip-json
 
 Spring Boot starter that lets [yupzip-json](https://github.com/yupzip/yupzip-json) share the application's `JsonMapper` so a `Json` instance is serialised by the same mapper as the rest of the application.
-
+# Status
+![Build](https://github.com/yupzip/spring-boot-starter-yupzip-json/actions/workflows/build.yml/badge.svg)
+[![Coverage](https://coveralls.io/repos/github/yupzip/spring-boot-starter-yupzip-json/badge.svg?branch=master)](https://coveralls.io/github/yupzip/spring-boot-starter-yupzip-json?branch=master)
 ## Requirements
 
 - JDK 21+
 - **Spring Boot 4.0+** — earlier versions ship Jackson 2 and do not provide a `JsonMapper` (Jackson 3) bean for the starter to pick up. See *Spring Boot 3.x notes* below if you cannot upgrade yet.
-- yupzip-json 3.2.0+ (the version that exposes `JsonMappers.configure(...)`)
+- yupzip-json 4.0.0+ (the version that exposes `JsonMappers.configure(...)`)
 
 ## Getting started
 
