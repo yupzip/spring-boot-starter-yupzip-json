@@ -1,3 +1,11 @@
+buildscript {
+    // The kt3k coveralls plugin (2.12.2) still references groovy.util.XmlParser, which moved
+    // to a separate artifact in Groovy 4 (Gradle 9). Add it explicitly so :coveralls works.
+    dependencies {
+        classpath 'org.apache.groovy:groovy-xml:4.0.21'
+    }
+}
+
 plugins {
     id 'java-library'
     id 'jacoco'
