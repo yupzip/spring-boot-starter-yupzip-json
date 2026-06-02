@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.AutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Lazy;
 import tools.jackson.databind.json.JsonMapper;
 
 /**
@@ -31,6 +32,7 @@ public class YupzipJsonAutoConfiguration {
 
     @Bean
     @ConditionalOnMissingBean
+    @Lazy(false)
     public YupzipJsonInitializer yupzipJsonInitializer(ObjectProvider<JsonMapper> mapperProvider) {
         JsonMapper mapper = mapperProvider.getIfAvailable();
         if (mapper != null) {

@@ -75,6 +75,24 @@ class YupzipJsonAutoConfigurationTest {
                 });
     }
 
+    @Test
+    void runsAtStartupEvenWhenLazyInitializationIsEnabled() {
+        // Regression test: with spring.main.lazy-initialization=true, only beans that are
+        // referenced get instantiated. The initializer is annotated @Lazy(false) so it must
+        // be created at startup regardless — and therefore must wire JsonMappers before any
+        // consumer code runs.
+        new ApplicationContextRunner()
+                .withConfiguration(AutoConfigurations.of(
+                        JacksonAutoConfiguration.class,
+                        YupzipJsonAutoConfiguration.class))
+                .withPropertyValues("spring.main.lazy-initialization=true")
+                .run(context -> {
+                    // Without resolving YupzipJsonInitializer here, confirm the wiring still ran.
+                    JsonMapper springMapper = context.getBean(JsonMapper.class);
+                    assertThat(JsonMappers.current()).isSameAs(springMapper);
+                });
+    }
+
     @Configuration
     static class SnakeCaseMapperConfig {
         @Bean

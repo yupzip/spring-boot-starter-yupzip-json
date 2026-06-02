@@ -17,13 +17,13 @@ Spring Boot starter that lets [yupzip-json](https://github.com/yupzip/yupzip-jso
 <dependency>
     <groupId>com.yupzip.json</groupId>
     <artifactId>spring-boot-starter-yupzip-json</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.1</version>
 </dependency>
 ```
 
 ### Gradle
 ```groovy
-implementation 'com.yupzip.json:spring-boot-starter-yupzip-json:1.0.0'
+implementation 'com.yupzip.json:spring-boot-starter-yupzip-json:1.0.1'
 ```
 
 ## How it works
@@ -32,7 +32,7 @@ The starter's auto-configuration looks for a `tools.jackson.databind.json.JsonMa
 - **If present**, it is registered with yupzip via `JsonMappers.configure(mapper)`. Every `Json` operation that touches Jackson — `parse`, `convertTo`, `toString`, etc. — uses the same mapper as the rest of the application.
 - **If absent**, yupzip continues to use its built-in default mapper (no failure).
 
-A `YupzipJsonInitializer` bean is added to the context; check `isUsingSpringMapper()` if you want to assert in tests that the bridge actually kicked in.
+A `YupzipJsonInitializer` bean is added to the context; check `isUsingSpringMapper()` if you want to assert in tests that the bridge actually kicked in. The bean is eagerly instantiated (`@Lazy(false)`) so the bridge runs at startup regardless of the consumer's `spring.main.lazy-initialization` setting.
 
 On Spring Boot 4.0+, `JacksonAutoConfiguration` (in the `spring-boot-jackson` module) produces a Jackson 3 `JsonMapper` bean configured from `spring.jackson.*` — so the starter is zero-config: add the dependency, configure Jackson as you would normally, done.
 
