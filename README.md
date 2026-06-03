@@ -6,9 +6,8 @@ Spring Boot starter that lets [yupzip-json](https://github.com/yupzip/yupzip-jso
 [![Coverage](https://coveralls.io/repos/github/yupzip/spring-boot-starter-yupzip-json/badge.svg?branch=master)](https://coveralls.io/github/yupzip/spring-boot-starter-yupzip-json?branch=master)
 ## Requirements
 
-- JDK 21+
+- JDK 17+
 - **Spring Boot 4.0+** — earlier versions ship Jackson 2 and do not provide a `JsonMapper` (Jackson 3) bean for the starter to pick up. See *Spring Boot 3.x notes* below if you cannot upgrade yet.
-- yupzip-json 4.0.0+ (the version that exposes `JsonMappers.configure(...)`)
 
 ## Getting started
 
@@ -17,13 +16,13 @@ Spring Boot starter that lets [yupzip-json](https://github.com/yupzip/yupzip-jso
 <dependency>
     <groupId>com.yupzip.json</groupId>
     <artifactId>spring-boot-starter-yupzip-json</artifactId>
-    <version>1.0.1</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
 ### Gradle
 ```groovy
-implementation 'com.yupzip.json:spring-boot-starter-yupzip-json:1.0.1'
+implementation 'com.yupzip.json:spring-boot-starter-yupzip-json:1.1.0'
 ```
 
 ## How it works

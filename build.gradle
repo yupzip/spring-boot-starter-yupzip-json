@@ -4,11 +4,11 @@ plugins {
 }
 
 group = 'com.yupzip.json'
-version = '1.0.1'
+version = '1.1.0'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 repositories {
@@ -24,7 +24,7 @@ dependencies {
     // including Jackson — so jackson-databind stays in lockstep with what Spring Boot ships.
     api platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
 
-    api 'com.yupzip.json:yupzip-json:4.0.0'
+    api 'com.yupzip.json:yupzip-json:4.1.0'
     api 'tools.jackson.core:jackson-databind'
     implementation 'org.springframework.boot:spring-boot-autoconfigure'
 
