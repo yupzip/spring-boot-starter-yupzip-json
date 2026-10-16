@@ -16,13 +16,13 @@ Spring Boot starter that lets [yupzip-json](https://github.com/yupzip/yupzip-jso
 <dependency>
     <groupId>com.yupzip.json</groupId>
     <artifactId>spring-boot-starter-yupzip-json</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.1</version>
 </dependency>
 ```
 
 ### Gradle
 ```groovy
-implementation 'com.yupzip.json:spring-boot-starter-yupzip-json:1.2.0'
+implementation 'com.yupzip.json:spring-boot-starter-yupzip-json:1.2.1'
 ```
 
 ## How it works
